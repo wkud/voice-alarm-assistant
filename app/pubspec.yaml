@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_tts: ^4.2.5
   porcupine_flutter: ^4.0.0
   rhino_flutter: ^4.0.0
 
