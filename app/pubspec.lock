@@ -291,6 +291,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
+  rhino_flutter:
+    dependency: "direct main"
+    description:
+      name: rhino_flutter
+      sha256: "465e7ec3c61dac1132eb54451ddb1282c55d57c10b8dc95d2253bb0557290a1a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
