@@ -7,10 +7,13 @@ environment:
   sdk: ^3.10.7
 
 dependencies:
+  built_collection: ^5.1.1
+  built_value: ^8.12.3
   dio: ^5.9.0
   flutter:
     sdk: flutter
   flutter_tts: ^4.2.5
+  openapi_generator_annotations: ^6.1.0
   porcupine_flutter: ^4.0.0
   rhino_flutter: ^4.0.0
 
