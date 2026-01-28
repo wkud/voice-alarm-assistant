@@ -31,6 +31,7 @@ public class UserRepository : IUserRepository
         _logger.LogDebug("Querying database for all users");
 
         var users = await _db.Users
+            .AsNoTracking()
             .OrderByDescending(p => p.CreatedAt)
             .ToListAsync(ct);
 
