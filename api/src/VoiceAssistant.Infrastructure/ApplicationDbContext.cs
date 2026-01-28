@@ -1,7 +1,7 @@
-﻿using CrudWebApi.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using VoiceAssistant.Domain.Models;
 
-namespace CrudWebApi.Infrastructure;
+namespace VoiceAssistant.Infrastructure;
 
 public class ApplicationDbContext : DbContext
 {

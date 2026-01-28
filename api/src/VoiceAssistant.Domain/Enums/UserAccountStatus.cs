@@ -1,4 +1,4 @@
-namespace CrudWebApi.Domain.Enums;
+namespace VoiceAssistant.Domain.Enums;
 
 public enum UserAccountStatus
 {

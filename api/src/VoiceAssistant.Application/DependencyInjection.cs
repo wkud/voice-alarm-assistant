@@ -1,8 +1,8 @@
-using CrudWebApi.Application.Abstractions;
-using CrudWebApi.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
+using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Application.Services;
 
-namespace CrudWebApi.Application;
+namespace VoiceAssistant.Application;
 
 public static class DependencyInjection
 {

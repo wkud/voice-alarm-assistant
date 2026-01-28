@@ -1,6 +1,6 @@
-using CrudWebApi.Domain.Models;
+using VoiceAssistant.Domain.Models;
 
-namespace CrudWebApi.Application.Abstractions;
+namespace VoiceAssistant.Application.Abstractions;
 
 public interface IUserRepository
 {

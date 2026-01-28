@@ -1,6 +1,6 @@
-using CrudWebApi.Domain.Enums;
+using VoiceAssistant.Domain.Enums;
 
-namespace CrudWebApi.Application.Dtos.User;
+namespace VoiceAssistant.Application.Dtos.User;
 
 public record UpdateUserDto
 {

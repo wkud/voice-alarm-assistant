@@ -1,9 +1,9 @@
-using CrudWebApi.Application.Abstractions;
-using CrudWebApi.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Domain.Models;
 
-namespace CrudWebApi.Infrastructure.Repositories;
+namespace VoiceAssistant.Infrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {

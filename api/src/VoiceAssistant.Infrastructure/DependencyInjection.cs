@@ -1,12 +1,12 @@
-using CrudWebApi.Application.Abstractions;
-using CrudWebApi.Infrastructure.Options;
-using CrudWebApi.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Infrastructure.Options;
+using VoiceAssistant.Infrastructure.Repositories;
 
-namespace CrudWebApi.Infrastructure;
+namespace VoiceAssistant.Infrastructure;
 
 public static class DependencyInjection
 {

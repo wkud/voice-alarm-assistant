@@ -1,6 +1,6 @@
-﻿using CrudWebApi.Domain.Enums;
+﻿using VoiceAssistant.Domain.Enums;
 
-namespace CrudWebApi.Domain.Models;
+namespace VoiceAssistant.Domain.Models;
 
 public class User
 {

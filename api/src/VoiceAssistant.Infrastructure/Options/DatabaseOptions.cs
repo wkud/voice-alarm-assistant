@@ -1,4 +1,4 @@
-namespace CrudWebApi.Infrastructure.Options;
+namespace VoiceAssistant.Infrastructure.Options;
     
 public class DatabaseOptions
 {

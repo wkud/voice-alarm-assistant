@@ -1,10 +1,10 @@
-using CrudWebApi.Application.Abstractions;
-using CrudWebApi.Application.Dtos.User;
-using CrudWebApi.Domain.Enums;
-using CrudWebApi.Domain.Models;
 using Microsoft.Extensions.Logging;
+using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Application.Dtos.User;
+using VoiceAssistant.Domain.Enums;
+using VoiceAssistant.Domain.Models;
 
-namespace CrudWebApi.Application.Services;
+namespace VoiceAssistant.Application.Services;
 
 public class UserService : IUserService
 {

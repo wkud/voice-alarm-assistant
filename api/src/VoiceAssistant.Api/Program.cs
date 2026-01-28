@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
-using CrudWebApi.Application;
-using CrudWebApi.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using VoiceAssistant.Application;
+using VoiceAssistant.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
-using CrudWebApi.Application.Dtos.User;
+using VoiceAssistant.Application.Dtos.User;
 
-namespace CrudWebApi.Application.Abstractions;
+namespace VoiceAssistant.Application.Abstractions;
 
 public interface IUserService
 {

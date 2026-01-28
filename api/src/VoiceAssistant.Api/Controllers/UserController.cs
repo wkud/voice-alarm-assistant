@@ -1,8 +1,8 @@
-using CrudWebApi.Application.Abstractions;
-using CrudWebApi.Application.Dtos.User;
 using Microsoft.AspNetCore.Mvc;
+using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Application.Dtos.User;
 
-namespace CrudWebApi.Api.Controllers;
+namespace VoiceAssistant.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

@@ -1,8 +1,8 @@
-using CrudWebApi.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using VoiceAssistant.Domain.Models;
 
-namespace CrudWebApi.Infrastructure.Configurations;
+namespace VoiceAssistant.Infrastructure.Configurations;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {

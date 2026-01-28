@@ -1,4 +1,4 @@
-namespace CrudWebApi.Application.Dtos.User;
+namespace VoiceAssistant.Application.Dtos.User;
 
 public record CreateUserDto
 {
