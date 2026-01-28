@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CrudWebApi.Application\CrudWebApi.Application.csproj" />
-      <ProjectReference Include="..\CrudWebApi.Domain\CrudWebApi.Domain.csproj" />
+      <ProjectReference Include="..\VoiceAssistant.Application\VoiceAssistant.Application.csproj" />
+      <ProjectReference Include="..\VoiceAssistant.Domain\VoiceAssistant.Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>

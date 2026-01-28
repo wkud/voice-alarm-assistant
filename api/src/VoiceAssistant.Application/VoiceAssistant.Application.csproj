@@ -11,7 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CrudWebApi.Domain\CrudWebApi.Domain.csproj" />
+      <ProjectReference Include="..\VoiceAssistant.Domain\VoiceAssistant.Domain.csproj" />
     </ItemGroup>
 
 </Project>
