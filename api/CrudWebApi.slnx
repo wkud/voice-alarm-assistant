@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".env" />
+    <File Path=".env.example" />
+    <File Path=".gitignore" />
+    <File Path="compose.yaml" />
+  </Folder>
+  <Project Path="src/CrudWebApi.Api/CrudWebApi.Api.csproj" />
+  <Project Path="src/CrudWebApi.Application/CrudWebApi.Application.csproj" />
+  <Project Path="src/CrudWebApi.Domain/CrudWebApi.Domain.csproj" />
+  <Project Path="src/CrudWebApi.Infrastructure/CrudWebApi.Infrastructure.csproj" />
+</Solution>
