@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../.dockerignore" />
+    <File Path="../.env" />
+    <File Path="../.env.example" />
+    <File Path="../.gitignore" />
+    <File Path="../compose.yaml" />
+  </Folder>
+  <Project Path="src/VoiceAssistant.Api/VoiceAssistant.Api.csproj" />
+  <Project Path="src/VoiceAssistant.Application/VoiceAssistant.Application.csproj" />
+  <Project Path="src/VoiceAssistant.Domain/VoiceAssistant.Domain.csproj" />
+  <Project Path="src/VoiceAssistant.Infrastructure/VoiceAssistant.Infrastructure.csproj" />
+</Solution>
