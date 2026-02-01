@@ -9,5 +9,10 @@ class AppConfig {
     defaultValue: 'dev',
   );
 
+  static const String picovoiceAccessKey = String.fromEnvironment(
+    'PICOVOICE_ACCESS_KEY',
+    defaultValue: '',
+  );
+
   static bool get isProduction => env == 'production';
 }
