@@ -7,6 +7,8 @@ environment:
   sdk: ^3.10.7
 
 dependencies:
+  voice_assistant_api:
+    path: api/voice_assistant_api
   built_collection: ^5.1.1
   built_value: ^8.12.3
   dio: ^5.9.0
@@ -17,13 +19,15 @@ dependencies:
   porcupine_flutter: ^4.0.0
   rhino_flutter: ^4.0.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
   openapi_generator: ^6.1.0
   build_runner: ^2.4.13
+
+dependency_overrides:
+  analyzer: <7.0.0 >=2.0.0
 
 flutter:
   uses-material-design: true

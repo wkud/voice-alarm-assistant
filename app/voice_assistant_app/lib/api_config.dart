@@ -1,4 +1,4 @@
-// Openapi Generator last run: : 2026-01-31T21:44:18.623136
+// Openapi Generator last run: : 2026-01-31T22:55:35.180808
 import 'package:openapi_generator_annotations/openapi_generator_annotations.dart';
 
 @Openapi(
@@ -8,6 +8,6 @@ import 'package:openapi_generator_annotations/openapi_generator_annotations.dart
   ),
   inputSpec: InputSpec(path: 'assets/specification.json'),
   generatorName: Generator.dio,
-  outputDirectory: 'lib/generated_api',
+  outputDirectory: 'api/voice_assistant_api',
 )
 class ApiConfig {}
