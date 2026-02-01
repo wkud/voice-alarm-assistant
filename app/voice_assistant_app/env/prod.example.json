@@ -1,0 +1,4 @@
+{
+  "BASE_URL": "https://api.yourservice.com",
+  "APP_ENV": "production"
+}
