@@ -1,0 +1,5 @@
+{
+  "BASE_URL": "https://api.yourservice.com",
+  "APP_ENV": "production",
+  "PICOVOICE_ACCESS_KEY": ""
+}
