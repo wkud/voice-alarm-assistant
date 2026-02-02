@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   voice_assistant_api:
-    path: api/voice_assistant_api
+    path: packages/voice_assistant_api
   built_collection: ^5.1.1
   built_value: ^8.12.3
   dio: ^5.9.0

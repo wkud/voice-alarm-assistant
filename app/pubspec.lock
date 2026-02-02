@@ -840,7 +840,7 @@ packages:
   voice_assistant_api:
     dependency: "direct main"
     description:
-      path: "api/voice_assistant_api"
+      path: "packages/voice_assistant_api"
       relative: true
     source: path
     version: "1.0.0"
