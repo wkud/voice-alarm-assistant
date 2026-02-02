@@ -1,4 +1,9 @@
+```dart
+import 'dart:developer';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter_foreground_task/flutter_foreground_task.dart';
+import 'package:porcupine_flutter/porcupine.dart';
 import 'package:porcupine_flutter/porcupine_manager.dart';
 import 'package:rhino_flutter/rhino.dart';
 import 'package:rhino_flutter/rhino_manager.dart';
@@ -7,10 +12,10 @@ import 'package:dio/dio.dart';
 
 @pragma('vm:entry-point')
 void startCallback() {
-  FlutterForegroundTask.setTaskHandler(VoiceAssistantHandler());
+  FlutterForegroundTask.setTaskHandler(WakeWordTaskHandler());
 }
 
-class VoiceAssistantHandler extends TaskHandler {
+class WakeWordTaskHandler extends TaskHandler {
   PorcupineManager? _porcupineManager;
   RhinoManager? _rhinoManager;
   final FlutterTts _tts = FlutterTts();
@@ -30,7 +35,9 @@ class VoiceAssistantHandler extends TaskHandler {
       );
       await _porcupineManager!.start();
     } catch (e) {
-      _handleError();
+      if (kDebugMode) {
+        log(e.toString());
+      }
     }
   }
 
@@ -90,3 +97,4 @@ class VoiceAssistantHandler extends TaskHandler {
     await _rhinoManager?.delete();
   }
 }
+```

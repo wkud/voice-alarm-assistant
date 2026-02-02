@@ -13,10 +13,11 @@ class IntentParser {
   final String _accessKey = AppConfig.picovoiceAccessKey;
   final String _contextPath = "assets/voice_assistant_context.rhn";
   final Function onIntentParsed;
+  final Function onIntentNotParsed;
 
   RhinoManager? _rhinoManager;
 
-  IntentParser({required this.onIntentParsed});
+  IntentParser({required this.onIntentParsed, required this.onIntentNotParsed});
 
   Future<void> createManager() async {
     try {
@@ -53,21 +54,23 @@ class IntentParser {
 
   void _localInferenceCallback(RhinoInference inference) {
     if (inference.isUnderstood!) {
+      if (kDebugMode) {
+        log('Interference understood.');
+      }
+
       String intent = inference.intent!;
       Map<String, String> slots = inference.slots!;
 
       // take action based on inferred intent and slot values
       final intentDto = IntentDto(intent: intent, slots: slots);
       onIntentParsed.call(intentDto);
-
-      if (kDebugMode) {
-        log('Interference not understood.');
-      }
     } else {
-      // handle unsupported commands
       if (kDebugMode) {
         log('Interference not understood.');
       }
+
+      // handle unsupported commands
+      onIntentNotParsed.call();
     }
   }
 

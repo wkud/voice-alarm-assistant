@@ -16,7 +16,10 @@ class LogicOrchestrator {
     _wakeWordDetector = WakeWordDetector(
       onWakeWordDetected: _onWakeWordDetected,
     );
-    _intentParser = IntentParser(onIntentParsed: _onIntentParsed);
+    _intentParser = IntentParser(
+      onIntentParsed: _onIntentParsed,
+      onIntentNotParsed: _onIntentNotParsed,
+    );
   }
 
   Future<void> initialize() async {
@@ -30,17 +33,35 @@ class LogicOrchestrator {
   Future<void> startWakeWordDetection() async {
     await _wakeWordDetector.start();
 
-    _state = OrchestrationState.awaitingWakeWord;
+    _updateState(OrchestrationState.awaitingWakeWord);
   }
 
   void _onWakeWordDetected() {
     log("wake word detected!");
 
-    _state = OrchestrationState.parsingIntent;
-    _intentParser.start();
+    _updateState(OrchestrationState.parsingIntent);
 
-    log('State: $_state');
+    _intentParser.start();
   }
 
-  void _onIntentParsed(IntentDto intentDto) {}
+  void _onIntentParsed(IntentDto intentDto) {
+    log("intent parsed!");
+
+    _updateState(OrchestrationState.callingApi);
+
+    // final response = await Dio().post("https://your-api.com/intent", data: intentDto);
+    // await _speak(response.data['reply']);
+  }
+
+  void _onIntentNotParsed() {
+    log("Sorry, I didn't catch that.");
+    // await _speak("I didn't catch that.");
+    _updateState(OrchestrationState.awaitingWakeWord);
+    _wakeWordDetector.start();
+  }
+
+  void _updateState(OrchestrationState state) {
+    _state = state;
+    log('State: $_state');
+  }
 }
