@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Application.Abstractions.Users;
 using VoiceAssistant.Infrastructure.Options;
 using VoiceAssistant.Infrastructure.Repositories;
 

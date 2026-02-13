@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Application.Abstractions.Users;
 using VoiceAssistant.Application.Services;
 
 namespace VoiceAssistant.Application;
