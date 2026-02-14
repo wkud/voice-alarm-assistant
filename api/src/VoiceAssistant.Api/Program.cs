@@ -31,12 +31,12 @@ builder.Services.Configure<MvcOptions>(options =>
     options.ModelMetadataDetailsProviders.Add(new NewtonsoftJsonValidationMetadataProvider()); // changes ValidationProblemDetails property names to camelCase
 });
 
-// builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddDatabaseInfrastructure(builder.Configuration);
+builder.Services.AddRepositories();
 
 var app = builder.Build();
 

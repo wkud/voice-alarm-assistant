@@ -5,27 +5,49 @@ namespace VoiceAssistant.Application.Services;
 
 public class ShoppingItemService : IShoppingItemService
 {
-    private readonly IShoppingItemRepository _repository;
+    private readonly IShoppingItemRepository _shoppingItemRepository;
 
-    public ShoppingItemService(IShoppingItemRepository repository)
+    public ShoppingItemService(IShoppingItemRepository shoppingItemRepository)
     {
-        _repository = repository;
+        _shoppingItemRepository = shoppingItemRepository;
     }
-    
-    public async Task<ShoppingItemDto> AddToCartAsync(AddItemToCartDto addItemToCartDto)
+
+    public async Task<ShoppingItemDto> AddToCartSingleAsync(AddItemToCartSingleDto dto, CancellationToken ct = default)
+    {
+        var byCountDto = new AddItemToCartByCountDto(dto.ItemName, 1);
+        return await AddToCartByCountAsync(byCountDto);
+    }
+
+    public async Task<ShoppingItemDto> AddToCartByCountAsync(AddItemToCartByCountDto dto, CancellationToken ct = default)
     {
         // Assume:
         // - the only shop is Frisco for now (Auchan, BiedronkaOnGlovo can be added later on)  
+
+        await _shoppingItemRepository.GetByNameAsync(dto.ItemName);
         
-        // JEŚLI USE CASE = Single or Count 
-        // 1. Przeszukać mapowanie shoppingItem.Name -> (Shop x ShoppingItem).Url
-        // Last. Uruchomić joba w pythonie, który doda item do koszyka.
         
-        // JEŚLI USE CASE = Amount
-        // 1. Same as before -> url produktu w sklepie
-        // 2. Pobrać parametry pasującego produktu
-        // 2. Strzelić do LLM'a 
-        // Last. Same as before
+        // 1. Validate if dto.ShoppingItemName exists in Database (ShoppingItem.Name)
+        // 2. Find ShopProduct with Name matching to dto.ItemName
+        //     - Assume there is only one Shop entity (for now)
+        // 3. Get ShopProduct.Url
+        // 4. Delegate a job to run specific action in a browser (adds to cart) given the shopProductUrl and count
+        //     - if dto.Count == null (useCase == Single), then assume count = 1
+        
+        return await Task.FromException<ShoppingItemDto>(new NotImplementedException());
+    }
+
+    public async Task<ShoppingItemDto> AddToCartByAmountAsync(AddItemToCartByAmountDto dto, CancellationToken ct = default)
+    {
+        // 1. Find `ShopProduct` with Name matching to `dto.ItemName`
+        // 1. Fetch matching `ShopProduct`'s properties:
+        //     - `Description`
+        //     - `AmountPerPiece` - amount of product per piece (e.g. 500g, 1l, 2kg etc.)
+        //     - `UnitOfMeasurement` (e.g. `"g"`, `"l"`, `"kg"`)
+        //     - Assume there is only one `Shop` entity
+        // 2. Get `ShopProduct.Url`
+        // 3. Calculate `piecesNeeded` to add to the cart.
+        //     - `piecesNeeded = dto.Amount / shopProduct.AmountPerPiece` 
+        // 4. Delegate a job to run specific action in a browser (adds to cart) given the `shopProductUrl`
         
         return await Task.FromException<ShoppingItemDto>(new NotImplementedException());
     }

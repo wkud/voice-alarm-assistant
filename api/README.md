@@ -23,13 +23,13 @@ Description of entities used in the project:
 > Represents an abstract item, which user is familiar with. \
 > Single instance of this class is a representation of single (or multiple synonymous) phrase describing a shopping item. \
 > Examples: "Bread", "Cheese", "Ham", "Milk", "Oat flakes" \
-> Counter examples (not represented by this class): "Family bread 1kg", "Slavic bread 500g", "Mlekovita Milk - 1 liter", etc.
+> Counter examples (not represented by this class): "Family bread 1kg", "Breakfast bread 500g", "Mlekovita Milk - 1 liter", etc.
 
 - **Shop**
-> Represents an online shop. Correlated with single platform or a website.
+> Represents an online shop associated with a single platform or a website.
 
 - **ShopProduct**
-> Represents a concrete product with specific code EAN, manufacturer, logo, name, description etc. \
+> Represents a concrete product with specific bar code, manufacturer, logo, name, description etc. \
 > Relation-wise, represents connection between a specific **ShoppingItem** in specific **Shop**.
 
 ## Application: Business Logic
@@ -45,10 +45,11 @@ Endpoints available in API:
 > - the only `Shop` in DB is Frisco for now (Auchan, BiedronkaOnGlovo, etc. can be added later on)
 > 
 > If useCase == Single or Count 
-> 1. Find `ShopProduct` with Name matching to `dto.ItemName`
+> 1. Validate if `dto.ShoppingItemName` exists in Database (`ShoppingItem.Name`)
+> 2. Find `ShopProduct` with Name matching to `dto.ItemName`
 >    - Assume there is only one `Shop` entity (for now)
-> 2. Get `ShopProduct.Url`
-> 3. Delegate a job to run specific action in a browser (adds to cart) given the `shopProductUrl` and `count`
+> 3. Get `ShopProduct.Url`
+> 4. Delegate a job to run specific action in a browser (adds to cart) given the `shopProductUrl` and `count`
 >   - if `dto.Count == null` (useCase == Single), then assume `count = 1`
 > 
 > If useCase == Amount

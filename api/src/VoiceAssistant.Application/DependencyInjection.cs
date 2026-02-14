@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using VoiceAssistant.Application.Abstractions;
+using VoiceAssistant.Application.Abstractions.ShoppingItems;
 using VoiceAssistant.Application.Abstractions.Users;
 using VoiceAssistant.Application.Services;
 
@@ -9,7 +9,8 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IUserService, UserService>(); 
+        services.AddScoped<IShoppingItemService, ShoppingItemService>(); 
 
         return services;
     }
