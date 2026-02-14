@@ -21,6 +21,7 @@ public class ShoppingItemConfiguration : IEntityTypeConfiguration<ShoppingItem>
 
         builder.Property(x => x.UpdatedAt);
         
+        builder.HasIndex(x => x.Name);
         builder.HasIndex(x => x.CreatedAt);
     }
 }
