@@ -1,5 +1,7 @@
 using VoiceAssistant.Application.Abstractions.ShoppingItems;
 using VoiceAssistant.Application.Dtos.ShoppingItems;
+using VoiceAssistant.Application.Exceptions;
+using VoiceAssistant.Domain.Models;
 
 namespace VoiceAssistant.Application.Services;
 
@@ -15,7 +17,7 @@ public class ShoppingItemService : IShoppingItemService
     public async Task<ShoppingItemDto> AddToCartSingleAsync(AddItemToCartSingleDto dto, CancellationToken ct = default)
     {
         var byCountDto = new AddItemToCartByCountDto(dto.ItemName, 1);
-        return await AddToCartByCountAsync(byCountDto);
+        return await AddToCartByCountAsync(byCountDto, ct);
     }
 
     public async Task<ShoppingItemDto> AddToCartByCountAsync(AddItemToCartByCountDto dto, CancellationToken ct = default)
@@ -23,8 +25,11 @@ public class ShoppingItemService : IShoppingItemService
         // Assume:
         // - the only shop is Frisco for now (Auchan, BiedronkaOnGlovo can be added later on)  
 
-        await _shoppingItemRepository.GetByNameAsync(dto.ItemName);
-        
+        var shoppingItem = await _shoppingItemRepository.GetByNameAsync(dto.ItemName, ct);
+        if (shoppingItem is null)
+        {
+            throw new EntityNotFoundException(nameof(ShoppingItem), nameof(dto.ItemName), dto.ItemName); // TODO write middleware to handle EntityNotFoundException exception
+        }
         
         // 1. Validate if dto.ShoppingItemName exists in Database (ShoppingItem.Name)
         // 2. Find ShopProduct with Name matching to dto.ItemName
