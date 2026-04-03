@@ -23,7 +23,7 @@ public class ShopProductConfiguration : IEntityTypeConfiguration<ShopProduct>
         builder.Property(x => x.ImageUrl)
             .HasMaxLength(100);
 
-        builder.OwnsOne(typeof(Amount?), nameof(ShopProduct.Amount));
+        builder.OwnsOne(typeof(Amount?), nameof(ShopProduct.AmountPerItem));
         
         builder.Property(x => x.CreatedAt)
             .IsRequired();

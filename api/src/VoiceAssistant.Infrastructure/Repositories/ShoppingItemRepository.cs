@@ -26,12 +26,13 @@ public class ShoppingItemRepository : IShoppingItemRepository
         return shoppingItem;
     }
 
-    public async Task<ShoppingItem?> GetByNameAsync(string name, CancellationToken ct = default)
+    public async Task<ShoppingItem?> GetByNameIncludeShopProductAsync(string name, CancellationToken ct = default)
     {
         _logger.LogDebug("Querying database for shoppingItem with name: {ShoppingItemName}", name);
 
         var shoppingItem = await _db.ShoppingItems
             .AsNoTracking()
+            .Include(x => x.ShopProduct)
             .SingleOrDefaultAsync(x => x.Name == name, ct);
 
         _logger.LogDebug("Database query completed for shoppingItem name: {ShoppingItemName}, Found: {Found}", name, shoppingItem is not null);
