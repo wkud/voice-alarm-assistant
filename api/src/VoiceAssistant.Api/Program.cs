@@ -44,7 +44,6 @@ app.UseSerilogRequestLogging();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapSwagger();
     app.UseSwagger();
     app.UseSwaggerUI();
     

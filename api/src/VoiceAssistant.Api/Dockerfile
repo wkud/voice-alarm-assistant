@@ -7,7 +7,12 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY ["VoiceAssistant.slnx", "./"]
+COPY ["Directory.Packages.props", "./"] 
 COPY ["src/VoiceAssistant.Api/VoiceAssistant.Api.csproj", "src/VoiceAssistant.Api/"]
+COPY ["src/VoiceAssistant.Application/VoiceAssistant.Application.csproj", "src/VoiceAssistant.Application/"]
+COPY ["src/VoiceAssistant.Domain/VoiceAssistant.Domain.csproj", "src/VoiceAssistant.Domain/"]
+COPY ["src/VoiceAssistant.Infrastructure/VoiceAssistant.Infrastructure.csproj", "src/VoiceAssistant.Infrastructure/"]
 RUN dotnet restore "src/VoiceAssistant.Api/VoiceAssistant.Api.csproj"
 COPY . .
 WORKDIR "/src/src/VoiceAssistant.Api"
