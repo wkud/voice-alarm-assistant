@@ -1,6 +1,6 @@
 namespace VoiceAssistant.Domain.ValueObjects;
 
-public struct Amount
+public record Amount
 {
     /// <summary>
     /// Numeric value of the <see cref="Amount"/> expressed in <see cref="Unit"/>
