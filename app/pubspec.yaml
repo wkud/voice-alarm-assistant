@@ -39,3 +39,4 @@ assets:
   - assets/specification.json
   - assets/voice_assistant_context.rhn
   - assets/okay_henry.ppn
+  - assets/models/ggml-base.bin # whisper.cpp `base` model - https://huggingface.co/ggerganov/whisper.cpp/tree/main
