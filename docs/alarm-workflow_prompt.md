@@ -1,5 +1,5 @@
-# Voice Assistant
-Main functionality: **Alarm setting**.
+# Voice Assistant App
+Main functionality: **Setting an alarm**.
 
 ## Flow
 1. App's foreground service is in Wake Word Detection mode using Picovoice.
@@ -23,7 +23,7 @@ if (OpenWakeWord.isActivated()) {
   print("Wykryto wake word!");
 }
 ```
-3. When foreground service detects wake word, then it starts a microphone recording for 6 seconds (configurable number of seconds).
+3. When foreground service detects wake word, then it starts a microphone recording for 6 seconds (configurable number of seconds as `INTENT_RECORDING_IN_SECONDS` in `app_config.dart`).
     - The foreground service can be paused in daze mode and it's not a problem (no need for partial_wake_lock).
     - On both the locked and unlocked screen, the foreground service should work as normal.
     - Make sure app has `RECORD_AUDIO` and `FOREGROUND_SERVICE` permissions.
@@ -61,7 +61,7 @@ await flutterTts.speak("Ustawiono alarm na godzinę 16:00");
 - Permissions: permission_handler.
 Integrate every package to make sure the intended use of the package can run without any errors nor user requirements issues.
 
-## Additional requirements
+## Assumption
 - The solution is fully offline.
 - Android platform only (no iOS).
 - Target platform is Android 10, API Level 29+.

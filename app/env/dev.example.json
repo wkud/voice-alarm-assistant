@@ -1,5 +1,4 @@
 {
-  "BASE_URL": "http://localhost:8080/",
   "APP_ENV": "development",
-  "PICOVOICE_ACCESS_KEY": ""
+  "INTENT_RECORDING_IN_SECONDS": 6
 }

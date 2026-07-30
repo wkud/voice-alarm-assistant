@@ -1,4 +1,4 @@
-# voice_assistant_app
+# voice-alarm-assistant
 
 A flutter project targetting Android platform. 
 
@@ -12,23 +12,22 @@ A flutter project targetting Android platform.
 
 ### Usage
 Say for example:
-> "Hey Henry, turn on lights in the kitchen"
+> "Hey Henry, ustaw budzik na 9:00"
 
 Wake word: "Hey Henry" \
-Voice command:  "turn on lights in the kitchen" \
+Voice command:  "ustaw budzik na 9:00" \
 Intent:
 ```json
 {
-   "intent": "switchLights",
+   "intent": "setAlarm",
    "slots":
    {
-      "state": "on",
-      "room": "kitchen"
+      "hours": "9",
+      "minutes": "00"
    }
 }
 ```
-API processing result: 
-> lights in the kitchen are turned on
+Result: native android alarm app is used to set a new alarm on `9:00`
 
 ## Creating env files
 1. Go into main flutter project directory
@@ -37,16 +36,3 @@ API processing result:
    1. Make sure to provide PicovoiceAccessKey
 
 **Note:** For production environment use `cp ./env/prod.example.json ./env/prod.json`  
-
-## (Re)generating API consumer logic
-1. Go into main flutter project directory
-2. Run `dart run build_runner build --delete-conflicting-outputs` to generate api consumer code
-    - Note: the parameters of generated code can be configured in `{main_flutter_project_root}/lib/code_gen_config/api_config.dart`
-3. Run `flutter pub get` to update main project's dependency to the child project
-
-## Running
-- dev env 
-`flutter run --dart-define-from-file=env/dev.json`
-
-- prod env
-`flutter run --dart-define-from-file=env/prod.json`
